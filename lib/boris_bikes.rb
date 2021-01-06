@@ -1,16 +1,18 @@
 class DockingStation
     def initialize
+      release_bike
     end
 
     def release_bike
-      puts "hi"
+      bike = Bike.new
     end
 end
 
 class Bike
+  def initialize
+    working?
+  end
+
   def working?
   end
 end
-
-test = DockingStation.new.release_bike
-puts test
