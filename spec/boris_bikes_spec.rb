@@ -6,11 +6,17 @@ describe DockingStation do
     end
     context "bike working?" do
       it "bike working" do
-        expect(DockingStation.new.release_bike.working?).to eq(true)
+        expect(subject.release_bike.working?).to eq(true)
       end
     end
     describe ".dock" do
-      it { is_expected.to respond_to(:dock)}
+      it { is_expected.to respond_to(:dock).with(1).argument}
+    end
+
+    it "returning bikes that are docked" do
+      bike = Bike.new
+      subject.dock(bike)
+      expect(subject.bike).to eq bike
     end
 end
     # describe ".release_bike" do
